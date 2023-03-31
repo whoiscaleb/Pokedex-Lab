@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PokeDex</title>
 </head>
 <body>
     <h1><%=allPokemon.name%></h1>
-    <img src='<%=allPokemon.img%>'></img>
-
-        Name: <input type="text" name="name" /><br />
-        Type: <input type="text" name="name" /><br />
-        Attack: <input type="text" name="name" /><br />
-        Defense: <input type="text" name="img" name="name" /><br>
-        Special Attack: 
-        Special Defense:
-        SPeedL
-        <input type="text" name="img" value="url"/>
-    </form>
+    <img src='<%= allPokemon.img %>'></img>
+    <p>
+        Name: <%= allPokemon.name %></br>
+        Type: <%= allPokemon.type%></br>
+        HP: <%= allPokemon.stats.hp %></br>
+        Attack: <%= allPokemon.stats.attack%></br>
+        Defense: <%= allPokemon.stats.defense%></br>
+        Special Attack: <%= allPokemon.stats.spattack%></br>
+        Special Defense:<%= allPokemon.stats.spdefense%></br>
+    </p>
+    <a href="/pokemon/:id/edit">Edit</a>
     
+<form action="/pokemon/:id/<%=i; %>?_method=DELETE" method="POST"></form>
+    <a href="/pokemon">Home!</a>
 </body>
 </html>

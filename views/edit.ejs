@@ -3,16 +3,17 @@
     <meta charset="utf-8" />
     <title>Catch Em All!</title>
   </head>
-  <body>
-    <h1>Pokedex</h1>
-    <form action="/pokemon" method="POST">
-      Name: <input type="text" name="name" /><br />
-      Id: <input type="text" name="name" /><br />
-      HP: <input type="text" name="name" /><br />
-      ATTACK: <input type="text" name="name" /><br />
-      DEFENSE: <input type="text" name="name" /><br />
-      <input type="submit" value="Create Pokemon"/>
-
-    </form>
+    <body>
+      <h1><%= allPokemon.name %></h1>
+      <img src='<%= allPokemon.img %>'></img>
+          Name: <input type="text" id="name" name="name" value="<%= allPokemon.name %>"/></br>
+          Type: <input type="text" id="name" name="type" value="<%= allPokemon.type %>"/></br>
+          HP: <input type="text" id="name" name="hp" value="<%= allPokemon.stats.hp %>"/></br>
+          Attack: <input type="text" id="name" name="attack" value="<%= allPokemon.stats.attack %>"/></br>
+          Defense: <input type="text" id="name" name="defense" value="<%= allPokemon.stats.defense %>"/></br>
+          Special Attack: <input type="text" name="spattack" value="<%= allPokemon.stats.spattack %>"/></br>
+          Special Defense: <input type="text" name="spattack" value="<%= allPokemon.stats.spdefense %>"/></br>
+          <button type="submit">Submit</button>
+      </form>
   </body>
 </html>

@@ -1,11 +1,16 @@
 const express = require('express');
+const methodOverride = require('method-override')
 const app = express();
 const pokemon = require('./models/pokemon.js');
 const port = 3000
-const allPokemon = module.exports
+
+app.use('/public', express.static('public'));
+app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
+
 
 // INDEX
-app.get('/', (req, res) => {
+app.get('/pokemon', (req, res) => {
 res.render('index.ejs', { allPokemon: pokemon });
 });
 
@@ -18,32 +23,38 @@ app.get("/pokemon/new", (req,res) => {
 
 //DESTROY
 app.delete("/pokemon/:id", (req, res) => {
-    pokemon.splice(req.params.id, 1)
-    res.redirect("/pokemon") //redirect back to index route
+    allPokemon.splice(req.params.id, 1)
+    res.redirect("/pokemon") 
   })
 
 
 //UPDATE
-
-
-
-
+app.put("/:id", (req,res) => {
+    pokemon(req.params.id) = req.body
+    res.redirect('/pokemon')
+  }
+  )
+  
 //CREATE: POST 
 app.post("/pokemon", (req,res) => {
-    pokemon.push(req.body)
+    allPokemon.push(req.body)
     res.redirect("/pokemon")
 })
+
 // EDIT : GET 
-app.get("/pokemon/;id/edit", (req,res) => {
-    let x = req.params.id
-    res.render("edit.ejs", {allPokemon: pokemon[x]})
+app.get("/pokemon/:id/edit", (req,res) => {
+    res.render("edit.ejs", {
+        allPokemon: pokemon[req.params.id],
+        x : req.params.id,
+    })
+    
 })
 // SHOW: GET //
-app.get('/:id', (req, res) => {
-    let x = req.params.id
-    res.render('show.ejs', {allPokemon: pokemon[x]})
+app.get('/pokemon/:id', (req, res) => {
+    res.render('show.ejs', {
+        allPokemon: pokemon[req.params.id], 
+         x : req.params.id, })
     });
-
 
 app.listen(port, () => {
     console.log(`I'm listening on port ${port}`);
