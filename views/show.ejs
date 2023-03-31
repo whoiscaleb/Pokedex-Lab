@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css">
     <title>PokeDex</title>
 </head>
 <body>
@@ -19,8 +20,10 @@
         Special Defense:<%= allPokemon.stats.spdefense%></br>
     </p>
     <a href="/pokemon/:id/edit">Edit</a>
+
+    <input class="button" name="delete" method="POST" type="submit" value="DELETE" style="margin-top:30px; width:5%">
     
-<form action="/pokemon/:id/<%=i; %>?_method=DELETE" method="POST"></form>
+
     <a href="/pokemon">Home!</a>
 </body>
 </html>

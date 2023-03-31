@@ -1,0 +1,31 @@
+body{
+    background-color: rgb(132, 171, 220);
+}
+#items{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    max-height: 380px;
+    max-width: 380px;
+    padding: 20px;
+    display: inline-block;
+    text-decoration: none;
+    
+}
+#create {
+    align-items: center;
+}
+h1{
+    font-size: 80px;
+    
+}
+#make {
+    align-content: center;
+    margin: 8px;
+    padding: 12px;
+    position: relative;
+    
+}
+#makenew{
+    position: relative;
+    left: 850px;
+}

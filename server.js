@@ -5,8 +5,8 @@ const pokemon = require('./models/pokemon.js');
 const port = 3000
 
 app.use('/public', express.static('public'));
-app.use(express.urlencoded({extended: true}))
-app.use(methodOverride('_method'))
+app.use(express.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 
 
 // INDEX
@@ -17,7 +17,7 @@ res.render('index.ejs', { allPokemon: pokemon });
 
 //NEW
 app.get("/pokemon/new", (req,res) => {
-    res.render("new.ejs", {allPokemon: pokemon[x]})
+    res.render("new.ejs", {allPokemon: pokemon[req.query.params]})
 })
 
 
@@ -37,7 +37,7 @@ app.put("/:id", (req,res) => {
   
 //CREATE: POST 
 app.post("/pokemon", (req,res) => {
-    allPokemon.push(req.body)
+    allPokemon = pokemon.push(req.body)
     res.redirect("/pokemon")
 })
 
